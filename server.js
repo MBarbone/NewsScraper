@@ -6,7 +6,7 @@ const db = require("./db/connection");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const app = express();
-const path = require("path");
+// const path = require("path");
 
 const PORT = process.env.PORT || 5000;
 
