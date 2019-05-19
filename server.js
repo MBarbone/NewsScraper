@@ -11,7 +11,6 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // middleware
-
 // Use morgan logger for logging requests
 app.use(logger("dev"));
 // Parse request body as JSON
