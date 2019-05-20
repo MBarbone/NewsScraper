@@ -3,10 +3,7 @@ const exphbs = require("express-handlebars");
 const logger = require("morgan");
 // mongoose connection
 const db = require("./db/connection");
-const axios = require("axios");
-const cheerio = require("cheerio");
 const app = express();
-// const path = require("path");
 
 const PORT = process.env.PORT || 5000;
 
@@ -22,9 +19,8 @@ app.use(express.static("public"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-require("./routes/article-routes")(app);
+require("./routes/api-routes")(app);
 
 app.listen(PORT, () => {
-  // Log (server-side) when our server has started
   console.log(`Server listening on: http://localhost:${PORT}`);
 });
