@@ -50,4 +50,22 @@ module.exports = app => {
         res.json(err);
       });
   });
+
+  // Comment Route
+  app.post("articles/:id", (req, res) => {
+    db.Comment.create(req.body).then(dbComment => {
+      return db.Article.findOneAndUpdate(
+        { _id: req.params.id },
+        { comment: dbComment._id },
+        { new: true }
+
+          .then(dbArticle => {
+            res.json(dbArticle);
+          })
+          .catch(err => {
+            res.json(err);
+          })
+      );
+    });
+  });
 };
